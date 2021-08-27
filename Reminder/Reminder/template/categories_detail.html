@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+ <div class="card" style="margin: 30px;padding: 20px">
+    <div class="card-header">
+        <span class="font-weight-bold">
+          {% for task in object.categor.all  %}
+            <a href="{% url 'task' task.slug %}"  class="card" style="margin: 10px;padding: 10px;border-radius: 20px">{{ task.title|title  }}</a>
+            {% endfor %}
+        </span>
+    </div>
+</div>
+<p>Back to <a href="{% url 'categories' %}">All Categories</a>.</p>
+{% endblock content %}

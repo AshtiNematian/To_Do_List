@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Categories{% endblock title %}
+{% block content %}
+    <h3>Empty Caterories</h3>
+    {% for category in  categories.empty_list%}
+        <div class="card" style="margin: 30px; padding: 20px;border-radius: 10px" >
+        <div class="card-header">
+        <span class="font-weight-bold">
+            <a href="{% url 'category' category.slug %}">{{ category|title}}</a></span>
+            </div>
+        </div>
+    <br />
+    {% endfor %}
+    <h3>Non Empty Categories</h3>
+    {% for category in  categories.non_empty_list%}
+        <div class="card" style="margin: 30px; padding: 20px;border-radius: 10px" >
+        <div class="card-header">
+        <span class="font-weight-bold">
+            <a href="{% url 'category' category.slug %}">{{ catetegory.title|title}}</a></span>
+            </div>
+        </div>
+    <br />
+    {% endfor %}
+
+{% endblock content %}

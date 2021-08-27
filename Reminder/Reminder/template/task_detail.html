@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load remain %}
+{% block content %}
+ <div class="card" style="margin: 30px;border-radius: 10px">
+    <div class="card-header">
+        <span class="font-weight-bold">
+            <h3 class="card" style="background-color: lightgoldenrodyellow">{{ object.title|title  }}</h3>
+            <p class="card" style="background-color: lightgoldenrodyellow"> Category of Task : {{ object.categories }} </p>
+            <p class="card" style="background-color: lightgoldenrodyellow">Priority is : {{ object.priority }}</p>
+            <p class="card" style="background-color: lightgoldenrodyellow"> Remaining Time : {{ object.age|age }} </p>
+            <p class="card" style="background-color: lightgoldenrodyellow"> Date of task: {{ object.date_of_task | date}} </p>
+            <p class="card" style="background-color: lightgoldenrodyellow">description : {{ object.description }}</p>
+        </span>
+    </div>
+</div>
+<p>Back to <a href="{% url 'task_list' %}">All Tasks</a>.</p>
+{% endblock content %}

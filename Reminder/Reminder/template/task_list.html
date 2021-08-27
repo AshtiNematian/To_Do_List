@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Tasks{% endblock title %}
+{% block content %}
+    <div style="margin-top: 20px">
+    <h3 style="padding: 5px">Doing Task </h3>
+    </div>
+    {% for task in tasks.going_list %}
+        <div class="card" style="margin: 20px;padding: 20px;border-radius: 10px">
+            <div class="card-header">
+                <span class="font-weight-bold">
+                    <a href="{% url 'task' task.slug %}">{{ task.title|title }}</a>
+                    <br>
+            </div>
+        </div>
+
+    <br />
+    {% endfor %}
+     <div style="margin-bottom: 40px">
+    <h3>Expire Task</h3>
+     </div>
+    {% for task in tasks.expire_list %}
+        <div class="card" style="margin: 20px;padding: 20px;border-radius: 10px">
+            <div class="card-header">
+                <span class="font-weight-bold">
+                    <a href="{% url 'task' task.slug %}">{{ task.title|title }}</a>
+                    <br>
+            </div>
+        </div>
+
+    <br />
+    {% endfor %}
+
+     <button class="btn btn-link ml-2"  type="submit"style="margin-bottom: 30px">
+         <a href="{% url 'serialtask' %}" download=""> Download Tasks </a>
+     </button>
+{% endblock content %}
